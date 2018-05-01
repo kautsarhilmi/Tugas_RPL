@@ -1,25 +1,28 @@
-<ion-header>
+<!--><ion-header>
   <ion-navbar color="secondary">
-    <ion-title>
-	Adds align-self: center
+    <ion-title text-center>
            CYDUCK
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header>-->
 
-<ion-content padding>
+<ion-content padding class = "page-home">
   <ion-list>
-
+<ion-img src='../assets/imgs/42269878-1-f.jpg'></ion-img>
   <ion-item>
-    <ion-label stacked>Username</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text"ion-input></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label stacked>Password</ion-label>
+    <ion-label floating>Password</ion-label>
     <ion-input type="password"></ion-input>
   </ion-item>
 
 </ion-list>
-<button ion-button full>Sign in</button>
+<button ion-button full round color="dark-brown" (click)="sign_in()">Masuk</button>
+
+<button ion-button full round color ="dark-brown"(click)="gotoRegisterPage()">Daftar</button>
+
+
 </ion-content>

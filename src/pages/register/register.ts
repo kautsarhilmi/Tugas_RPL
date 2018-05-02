@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { MenuPage } from '../menu/menu';
+
 
 @Component({
   selector: 'page-register',
@@ -12,6 +14,9 @@ export class RegisterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+  gotoMenuPage(){
+	  this.navCtrl.push(MenuPage);
   }
 
 }

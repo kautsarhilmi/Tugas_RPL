@@ -9,6 +9,7 @@
 <ion-content padding class = "page-home">
   <ion-list>
 <ion-img src='../assets/imgs/42269878-1-f.jpg'></ion-img>
+<ion-card round>
   <ion-item>
     <ion-label floating>Username</ion-label>
     <ion-input type="text"ion-input></ion-input>
@@ -17,12 +18,13 @@
   <ion-item>
     <ion-label floating>Password</ion-label>
     <ion-input type="password"></ion-input>
-  </ion-item>
+  </ion-item></ion-card>
+  <br>
+<button ion-button full round color="dark-brown" (click)="gotoMenuPage()">Masuk</button>
 
+<button ion-button full round color ="dark-brown" (click)="gotoRegisterPage()">Daftar</button>
 </ion-list>
-<button ion-button full round color="dark-brown" (click)="sign_in()">Masuk</button>
 
-<button ion-button full round color ="dark-brown"(click)="gotoRegisterPage()">Daftar</button>
 
 
 </ion-content>

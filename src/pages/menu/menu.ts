@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PenemuanPage } from '../penemuan/penemuan';
 import { NavController,NavParams } from 'ionic-angular';
 import { KehilanganPage } from '../kehilangan/kehilangan'
+import { LaporPage } from '../lapor/lapor';
 
 @Component({
   selector: 'page-menu',
@@ -17,5 +18,8 @@ export class MenuPage {
   
   gotoKehilanganPage(){
 	  this.navCtrl.push(KehilanganPage);
+  }
+  gotoLaporPage(){
+	  this.navCtrl.push(LaporPage);
   }
 }

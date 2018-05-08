@@ -10,6 +10,15 @@ import { RegisterPage } from '../pages/register/register';
 import { MenuPage } from '../pages/menu/menu';
 import { PenemuanPage } from '../pages/penemuan/penemuan';
 import { KehilanganPage } from '../pages/kehilangan/kehilangan';
+import { LaporPage } from '../pages/lapor/lapor';
+import { LaporkehilanganPage } from '../pages/laporkehilangan/laporkehilangan';
+import { LaporpenemuanPage } from '../pages/laporpenemuan/laporpenemuan';
+
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -17,7 +26,10 @@ import { KehilanganPage } from '../pages/kehilangan/kehilangan';
 	RegisterPage,
 	MenuPage,
 	PenemuanPage,
-	KehilanganPage
+	KehilanganPage,
+	LaporPage,
+	LaporkehilanganPage,
+	LaporpenemuanPage
   ],
   imports: [
     BrowserModule,
@@ -30,11 +42,18 @@ import { KehilanganPage } from '../pages/kehilangan/kehilangan';
 	RegisterPage,
 	MenuPage,
 	PenemuanPage,
-	KehilanganPage
+	KehilanganPage,
+	LaporPage,
+	LaporkehilanganPage,
+	LaporpenemuanPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+	File,
+	Transfer,
+	Camera,
+	FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

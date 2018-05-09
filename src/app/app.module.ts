@@ -13,6 +13,7 @@ import { KehilanganPage } from '../pages/kehilangan/kehilangan';
 import { LaporPage } from '../pages/lapor/lapor';
 import { LaporkehilanganPage } from '../pages/laporkehilangan/laporkehilangan';
 import { LaporpenemuanPage } from '../pages/laporpenemuan/laporpenemuan';
+import { TabsPage } from '../pages/tabs/tabs';
 
 import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
@@ -29,7 +30,8 @@ import { Camera } from '@ionic-native/camera';
 	KehilanganPage,
 	LaporPage,
 	LaporkehilanganPage,
-	LaporpenemuanPage
+	LaporpenemuanPage,
+	TabsPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { Camera } from '@ionic-native/camera';
 	KehilanganPage,
 	LaporPage,
 	LaporkehilanganPage,
-	LaporpenemuanPage
+	LaporpenemuanPage,
+	TabsPage
   ],
   providers: [
     StatusBar,

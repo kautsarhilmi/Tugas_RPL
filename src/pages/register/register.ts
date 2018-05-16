@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { MenuPage } from '../menu/menu';
+import { TabsPage } from '../tabs/tabs';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
   gotoMenuPage(){
-	  this.navCtrl.push(MenuPage);
+	  this.navCtrl.push(TabsPage);
   }
 
 }

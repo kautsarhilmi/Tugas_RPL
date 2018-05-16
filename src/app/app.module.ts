@@ -13,6 +13,7 @@ import { KehilanganPage } from '../pages/kehilangan/kehilangan';
 import { LaporPage } from '../pages/lapor/lapor';
 import { LaporkehilanganPage } from '../pages/laporkehilangan/laporkehilangan';
 import { LaporpenemuanPage } from '../pages/laporpenemuan/laporpenemuan';
+import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 
 
@@ -27,6 +28,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 	LaporPage,
 	LaporkehilanganPage,
 	LaporpenemuanPage,
+	ProfilePage,
 	TabsPage
   ],
   imports: [
@@ -44,6 +46,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 	LaporPage,
 	LaporkehilanganPage,
 	LaporpenemuanPage,
+	ProfilePage,
 	TabsPage
   ],
   providers: [

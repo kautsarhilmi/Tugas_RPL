@@ -40,6 +40,7 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   dark-brown: #603d2a,
+  yellow: 	  yellow
 );
 
 
@@ -87,3 +88,7 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+// Change the color of the tabs text
+$tabs-md-tab-color-active: #603d2a;
+$tabs-md-background: yellow;

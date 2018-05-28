@@ -44,4 +44,10 @@ export class MyApp {
     this.menu.close();
     this.nav.push(page.component);
   }
+
+  logout() {
+    this.menu.close();
+    this.DataStorage.logout();
+    this.app.getRootNav().setRoot(MyApp);
+  }
 }

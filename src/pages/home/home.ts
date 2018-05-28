@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
 
-import { MyApp } from '../../app/app.component'
+import { MyApp } from '../../app/app.component';
 import { DataProvider } from '../../provider/data';
 
 @Component({
@@ -26,14 +26,15 @@ export class HomePage {
   }
 
   login(){
-	  var link = 'http://localhost/rest_api_php/login_account.php';
-    var loginData = JSON.stringify({username: this.data.username, pw: this.data.password});
-    console.log(loginData)
+	  let link = 'http://localhost/rest_api_php/login_account.php';
+    let loginData = JSON.stringify({username: this.data.username, pw: this.data.password});
+    //console.log(loginData)
     this.http.post(link, loginData).subscribe(data => {
-      //let response = data.json();
-      let response = data["_body"];
+      //console.log(data)
+      let response = data.json();
+      //let response = data["_body"];
       console.log(response)
-      if(response[1] == "200"){
+      if(response.status == "200"){
           // console.log(response.data);
           this.DataStorage.login(response.data, "user");
           this.app.getRootNav().setRoot(MyApp);

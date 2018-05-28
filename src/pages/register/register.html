@@ -17,35 +17,95 @@
   <ion-list>
   <ion-item>
     <ion-label floating>Nama</ion-label>
-    <ion-input type="text"ion-input></ion-input>
+    <ion-input type="text"ion-input [(ngModel)]="data.nama"></ion-input>
   </ion-item>
   
   <ion-item>
     <ion-label floating>Username</ion-label>
-    <ion-input type="text"ion-input></ion-input>
+    <ion-input type="text"ion-input [(ngModel)]="data.username"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>NIM</ion-label>
-    <ion-input type="text"ion-input></ion-input>
+    <ion-input type="text"ion-input [(ngModel)]="data.nim"></ion-input>
   </ion-item>
+
+  <!--<ion-item>
+    <ion-card>{{data.fakdept}}4"</ion-card>
+    <ion-label floating>NIM</ion-label>
+    <ion-select [(ngModel)]="data.fakdept">
+      <ion-option value="A1" >A1</ion-option>
+      <ion-option value="A2" >A2</ion-option>
+      <ion-option value="A3" >A3</ion-option> 
+      <ion-option value="A4" >A4</ion-option>
+      <ion-option value="B0" >B0</ion-option>
+      <ion-option value="C1" >C1</ion-option>
+      <ion-option value="C2" >C2</ion-option>
+      <ion-option value="C3" >C3</ion-option>
+      <ion-option value="C4" >C4</ion-option>
+      <ion-option value="C5" >C5</ion-option>
+      <ion-option value="D1" >D1</ion-option>
+      <ion-option value="D2" >D2</ion-option>
+      <ion-option value="D3" >D3</ion-option>
+      <ion-option value="E1" >E1</ion-option>
+      <ion-option value="E2" >E2</ion-option>
+      <ion-option value="E3" >E3</ion-option>
+      <ion-option value="E4" >E4</ion-option>
+      <ion-option value="F1" >F1</ion-option>
+      <ion-option value="F2" >F2</ion-option>
+      <ion-option value="F3" >F3</ion-option>
+      <ion-option value="F4" >F4</ion-option>
+      <ion-option value="G1" >G1</ion-option>
+      <ion-option value="G2" >G2</ion-option>
+      <ion-option value="G3" >G3</ion-option>
+      <ion-option value="G4" >G4</ion-option>
+      <ion-option value="G5" >G5</ion-option>
+      <ion-option value="G6" >G6</ion-option>
+      <ion-option value="G7" >G7</ion-option>
+      <ion-option value="G8" >G8</ion-option>
+      <ion-option value="G9" >G9</ion-option>
+      <ion-option value="H1" >H1</ion-option>
+      <ion-option value="H2" >H2</ion-option>
+      <ion-option value="H3" >H3</ion-option>
+      <ion-option value="H4" >H4</ion-option>
+      <ion-option value="H5" >H5</ion-option>
+      <ion-option value="I1" >I1</ion-option>
+      <ion-option value="I2" >I2</ion-option>
+      <ion-option value="I3" >I3</ion-option>
+      <ion-option value="K1" >K1</ion-option>
+    </ion-select>
+    <ion-select [(NgModel)]="data.tahunajaran">
+      <ion-option value="12">12</ion-option>
+      <ion-option value="13">13</ion-option>
+      <ion-option value="14">14</ion-option>
+      <ion-option value="15">15</ion-option>
+      <ion-option value="16">16</ion-option>
+      <ion-option value="17">17</ion-option>
+      <ion-option value="18">18</ion-option>
+    </ion-select>
+  </ion-item>-->
   
   <ion-item>
     <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" [(ngModel)]="data.password"></ion-input>
   </ion-item>
   
   <ion-item>
     <ion-label floating>Ketik ulang password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" [(ngModel)]="data.retype"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>E-mail</ion-label>
+    <ion-input type="text" [(ngModel)]="data.email"></ion-input>
   </ion-item>
   
   <ion-item>
     <ion-label floating>No Hp</ion-label>
-    <ion-input type="integer"></ion-input>
+    <ion-input type="text" [(ngModel)]="data.no_hp"></ion-input>
   </ion-item>
   <br>
-<button ion-button full round color="dark-brown" (click)="gotoMenuPage()">Daftar</button>
+<button ion-button full round color="dark-brown" (click)="validcheck()">Daftar</button>
 </ion-list>
 
 

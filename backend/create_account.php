@@ -5,6 +5,7 @@
     $nama ="";
     $username = "";
     $pw = "";
+    $email = "";
     $no_hp = "";
     if (isset($postdata)) {
         $request = json_decode($postdata);
@@ -12,10 +13,11 @@
         $nama = $request->nama;
         $username = $request->username;
         $pw = $request->pw;
+        $email = $request->email;
         $no_hp = $request->no_hp;
         //ini buat cek apakah JSON ada isisnya atau tidak
         if($request){
-            $query_register = mysqli_query($connect,"INSERT INTO user (nim, nama, username, pw, no_hp) VALUES ('$nim', '$nama', '$username', '$pw', '$no_hp') ");
+            $query_register = mysqli_query($connect,"INSERT INTO user (nim, nama, username, pw, email, no_hp) VALUES ('$nim', '$nama', '$username', '$pw', '$email', '$no_hp') ");
             if($query_register){
                  $data =array(
                      'message' => "Register Success!",

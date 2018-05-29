@@ -35,7 +35,8 @@ export class RegisterPage {
   }
 
   validcheck(){
-    if(this.data.nama === '' || this.data.username === '' || this.data.nim === '' || this.data.password === '' || this.data.repassword === '' || this.data.email === '' || this.data.no_hp === ''){
+    if(this.data.nama === '' || this.data.username === '' || this.data.nim === '' || this.data.password === '' ||
+      this.data.repassword === '' || this.data.email === '' || this.data.no_hp === ''){
       let toast = this.toastCtrl.create({
         message: 'Isi semua data field',
         duration: 3000,
@@ -84,14 +85,15 @@ export class RegisterPage {
 
   registeracc(){
 	  let link = 'http://localhost/rest_api_php/create_account.php';
-    let registerData = JSON.stringify({nim: this.data.nim, nama: this.data.nama, username: this.data.username, pw: this.data.password, email: this.data.email, no_hp: this.data.no_hp});
+    let registerData = JSON.stringify({nim: this.data.nim, nama: this.data.nama, username: this.data.username,
+      email: this.data.email, pw: this.data.password, no_hp: this.data.no_hp});
+    //console.log(registerData);
     this.http.post(link, registerData).subscribe(data => {
       //console.log(data)
-      //let response = data.json();
-      let response = data["_body"];
+      let response = data.json();
+      //let response = data["_body"];
       console.log(response)
       if(response.status == "200"){
-        console.log(response.data);
         this.navCtrl.push(HomePage);
         let alert = this.alertCtrl.create({
          title: 'Account Created',

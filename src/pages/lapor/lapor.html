@@ -9,8 +9,21 @@
 
 
 <ion-content padding class="page-menu">
-<br><div text-center>
-<ion-icon style="font-size:150px" name="walk" (click)="gotoLaporkehilanganPage()"></ion-icon>                    <!-- active --> 
-<p> Kehilangan </p><br><br>
-<ion-icon style="font-size:150px" name="search" (click)="gotoLaporpenemuanPage()"></ion-icon>                    <!-- active -->
-<p> Penemuan </p> </div></ion-content>
+<br><br>
+<div text-center>
+	<button ion-button color="dark-brown" style=" top: 35%; border-radius: 50%; width: 200px; height: 200px; border: 6px solid #FFFFFF; box-shadow: 0 24px 16px 0 rgba(0,0,0,0.2), 0 18px 20px 0 rgba(0,0,0,0.19);" (click)="gotoLaporkehilanganPage()">
+		<div>
+		<ion-icon style="font-size:100px; text-align: center;" name="walk"></ion-icon><br>
+	            <!-- active --> 
+		<label style="font-size: 20px; text-align: center;">Kehilangan</label>
+		</div>
+	</button>
+<br><br>
+	<button ion-button color="dark-brown" style="border-radius: 50%; width: 200px; height: 200px; border: 6px solid #FFFFFF; box-shadow: 0 24px 16px 0 rgba(0,0,0,0.2), 0 18px 20px 0 rgba(0,0,0,0.19);" (click)="gotoLaporkehilanganPage()">
+		<div>
+		<ion-icon style="font-size:100px" name="search"></ion-icon><br>
+	            <!-- active --> 
+		<label style="font-size: 20px">Kehilangan</label>
+		</div>
+	</button>
+</div></ion-content>

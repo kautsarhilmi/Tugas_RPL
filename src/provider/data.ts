@@ -6,14 +6,14 @@ import { Storage } from '@ionic/storage';
 @Injectable()
 export class DataProvider {
   public BASE_URL = 'http://localhost/cyduck';
-
+  public data_plain = {nim: "", nama: "", username: "", email: "", no_hp: ""};
   public HAS_LOGGED_IN = 'status_login';
   
-  constructor(public http: Http , public storage: Storage) {
-    
+  constructor(public http: Http, public storage: Storage) {
+    console.log('Hello DataProvider Provider');
   }
 
-  login(data : any,role:string) {
+  login(data: any, role:string) {
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.storage.set('user_data', data);
     this.storage.set('role', role);
@@ -21,7 +21,7 @@ export class DataProvider {
   
   logout() {
     this.storage.remove(this.HAS_LOGGED_IN);
-    this.storage.remove('user_data');
+    this.storage.set('user_data', this.data_plain);
     this.storage.remove('role');
   };
 

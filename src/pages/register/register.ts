@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, App } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController, App } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { Http } from '@angular/http';
 
+import { HomePage } from '../home/home'
 import { MyApp } from '../../app/app.component';
 import { DataProvider } from '../../provider/data';
 
@@ -17,7 +18,7 @@ export class RegisterPage {
   regexpnama = new RegExp(/^\w.{1,23}$/);
   regexpuname = new RegExp(/^(([\w._-]?)){1,18}$/);
 
-  constructor(public app: App, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public http: Http, public DataStorage: DataProvider) {
+  constructor(public app: App, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController, public http: Http, public DataStorage: DataProvider) {
     this.data.nama = "";
     this.data.username = "";
     this.data.nim = "";
@@ -83,21 +84,25 @@ export class RegisterPage {
 
   registeracc(){
 	  let link = 'http://localhost/rest_api_php/create_account.php';
-    let registerData = JSON.stringify({nim: this.data.nim, nama: this.data.nama, username: this.data.username, pw: this.data.password, no_hp: this.data.no_hp});
+    let registerData = JSON.stringify({nim: this.data.nim, nama: this.data.nama, username: this.data.username, pw: this.data.password, email: this.data.email, no_hp: this.data.no_hp});
     this.http.post(link, registerData).subscribe(data => {
       //console.log(data)
-      let response = data.json();
-      //let response = data["_body"];
+      //let response = data.json();
+      let response = data["_body"];
       console.log(response)
       if(response.status == "200"){
-           console.log(response.data);
-          this.DataStorage.login(response.data, "user");
-          this.app.getRootNav().setRoot(MyApp);
-          //this.navCtrl.setRoot(TabsPage);
-        } else {
+        console.log(response.data);
+        this.navCtrl.push(HomePage);
+        let alert = this.alertCtrl.create({
+         title: 'Account Created',
+         subTitle: 'Akun berhasil dibuat',
+         buttons: ['OK']
+      });
+        alert.present();
+      } else {
           // Kalo salah
           let toast = this.toastCtrl.create({
-            message: 'Incorrect username or password',
+            message: 'Gagal membuat akun',
             duration: 3000,
             position: 'top'
           });

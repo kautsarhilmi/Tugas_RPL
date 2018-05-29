@@ -14,7 +14,8 @@ import { DataProvider } from '../../provider/data';
 export class HomePage {
   data:any = {};
 
-  constructor(public app: App, public navCtrl: NavController, public toastCtrl: ToastController, public http: Http, public DataStorage: DataProvider) {
+  constructor(public app: App, public navCtrl: NavController, public toastCtrl: ToastController, public http: Http,
+    public DataStorage: DataProvider) {
     this.data.username = "";
     this.data.password = "";
     this.data.response = "";
@@ -30,14 +31,15 @@ export class HomePage {
     let loginData = JSON.stringify({username: this.data.username, pw: this.data.password});
     //console.log(loginData)
     this.http.post(link, loginData).subscribe(data => {
-      //console.log(data)
+      console.log(data)
       let response = data.json();
       //let response = data["_body"];
       console.log(response)
       if(response.status == "200"){
-          // console.log(response.data);
+          console.log(response.data);
           this.DataStorage.login(response.data, "user");
-          this.app.getRootNav().setRoot(MyApp);
+          this.navCtrl.push(MyApp);
+          //this.app.getRootNav().setRoot(MyApp);
           //this.navCtrl.setRoot(TabsPage);
         } else {
           // Kalau akun tidak ada

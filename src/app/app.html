@@ -1,10 +1,31 @@
 <ion-menu [content]="content">
     <ion-header>
         <ion-item color="yellow">
-          <ion-avatar item-start>
+          <div style="margin-left: 108px; font-size: 65px">
+          <!--<ion-avatar item-start text-center>
             <img src="assets/imgs/cyduck-logo.png">
-          </ion-avatar>
-          <ion-title>Test</ion-title>
+          </ion-avatar>-->
+          <ion-icon name="md-contact"></ion-icon>
+          </div><br>
+          <div style="text-align: center">
+          <p><ion-icon name="md-key" style="color: #603d2a;"></ion-icon>  {{data.nim}}</p>
+          </div>
+        </ion-item>
+        <ion-item color="yellow">
+          <ion-icon name="md-person" item-left style="color: #603d2a;"></ion-icon>
+          {{data.nama}}
+        </ion-item>
+        <ion-item color="yellow">
+          <ion-icon name="md-contact" item-left style="color: #603d2a;"></ion-icon>
+          {{data.username}}
+        </ion-item>
+        <ion-item color="yellow">
+          <ion-icon name="md-mail" item-left style="color: #603d2a;"></ion-icon>
+          {{data.email}}
+        </ion-item>
+        <ion-item color="yellow">
+          <ion-icon name="md-call" item-left style="color: #603d2a;"></ion-icon>
+          {{data.no_hp}}
         </ion-item>
     </ion-header>
     <ion-content>

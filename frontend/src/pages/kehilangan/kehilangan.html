@@ -8,41 +8,44 @@
 </ion-header>
 
 
-<ion-content padding class="page-kehilangan">
+<ion-content padding class="page-penemuan">
 
-  <ion-card>
+<ng-container *ngFor="let post of posts">
+<ion-card *ngIf="post">
 
   <ion-item>
     <ion-avatar item-start>
+      <ion-icon name="md-contact" style="font-size: 55px; color: #d3d3d3"></ion-icon>
     </ion-avatar>
-    <h2>Amin</h2>
-    <p>Mei 5, 2018</p>
+    <h2>{{post.nama}}</h2>
+    <p>{{post.usernim}}</p>
   </ion-item>
 
   <ion-card-content>
-    <p>[KEHILANGAN] <br> KTM atas nama Amin di sekitar FMIPA</p>
+    <h2 style="font-weight: bold;">{{post.judul}}</h2>
+    <!--<p style="color: red;">{{post.jenis}}</p>-->
+    <p>{{post.deskripsi}}</p>
   </ion-card-content>
+
   <ion-row>
     <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
+      <button ion-button icon-left clear small (click)="detailPost()">
+        <ion-icon name="ios-more"></ion-icon>
+        <div>Detail</div>
       </button>
     </ion-col>
     <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
-      </button>
+      <div ion-button icon-left color="light-grey" clear small>
+        <ion-icon name="text"></ion-icon>xx Comments
+      </div>
     </ion-col>
     <ion-col center text-center>
       <ion-note>
-        11h ago
+        {{post.date_time}}
       </ion-note>
     </ion-col>
   </ion-row>
 
 </ion-card>
+</ng-container>
 </ion-content>
-
-

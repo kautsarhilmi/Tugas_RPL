@@ -15,8 +15,8 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
   rootPage:any;
-  data:any = {};
-  pages: Array<{title: string, component: any}>;
+  data: Array<{}>;
+  pages: Array<{}>;
 
   constructor(public app: App, platform: Platform, statusBar: StatusBar,
     splashScreen: SplashScreen, public menu: MenuController, public DataStorage: DataProvider, public http: Http) {
@@ -27,31 +27,35 @@ export class MyApp {
       splashScreen.hide();
     });
 
-    this.DataStorage.getData().then((value) => {
-      this.data.nim= value.nim;
-      this.data.nama= value.nama;
-      this.data.username= value.username;
-      this.data.email= value.email;
-      this.data.no_hp= value.no_hp;
-      console.log(this.data);
-      console.log(this.data.nama);
-    });
-
     //buat session
     this.DataStorage.isLogin().then((value) => {
       if(value) {
-        this.rootPage = TabsPage;
+        this.DataStorage.getData().then((value) => {
+          if(value != null){
+            let data_elem = {
+            nim: value.nim,
+            nama: value.nama,
+            username: value.username,
+            email: value.email,
+            no_hp: value.no_hp
+            }
+            this.data = [data_elem];
+            console.log(this.data);
+
+            this.pages = [
+              { title: 'Profile', component: HomePage },
+              { title: 'Penemuan saya', component: HomePage },
+              { title: 'Komentar saya', component: HomePage },
+              { title: 'Kehilangan saya', component: HomePage }
+            ];
+            this.rootPage = TabsPage;
+          }
+        });
       } else{
         this.rootPage = HomePage;
       }
     });
 
-    this.pages = [
-      { title: 'Profile', component: HomePage },
-      { title: 'Penemuan saya', component: HomePage },
-      { title: 'Komentar saya', component: HomePage },
-      { title: 'Kehilangan saya', component: HomePage }
-    ];
   }
 
   openPage(page) {

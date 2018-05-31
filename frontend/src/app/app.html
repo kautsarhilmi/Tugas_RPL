@@ -1,3 +1,5 @@
+<ng-container *ngFor="let d of data">
+<ng-container *ngIf="d">
 <ion-menu [content]="content">
     <ion-header>
         <ion-item color="yellow">
@@ -8,24 +10,24 @@
           <ion-icon name="md-contact"></ion-icon>
           </div><br>
           <div style="text-align: center">
-          <p><ion-icon name="md-key" style="color: #603d2a;"></ion-icon>  {{data.nim}}</p>
+          <p><ion-icon name="md-key" style="color: #603d2a;"></ion-icon>  {{d.nim}}</p>
           </div>
         </ion-item>
         <ion-item color="yellow">
           <ion-icon name="md-person" item-left style="color: #603d2a;"></ion-icon>
-          {{data.nama}}
+          {{d.nama}}
         </ion-item>
         <ion-item color="yellow">
           <ion-icon name="md-contact" item-left style="color: #603d2a;"></ion-icon>
-          {{data.username}}
+          {{d.username}}
         </ion-item>
         <ion-item color="yellow">
           <ion-icon name="md-mail" item-left style="color: #603d2a;"></ion-icon>
-          {{data.email}}
+          {{d.email}}
         </ion-item>
         <ion-item color="yellow">
           <ion-icon name="md-call" item-left style="color: #603d2a;"></ion-icon>
-          {{data.no_hp}}
+          {{d.no_hp}}
         </ion-item>
     </ion-header>
     <ion-content>
@@ -39,5 +41,7 @@
         </ion-list>
     </ion-content>
   </ion-menu>
+</ng-container>
+</ng-container>
 
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

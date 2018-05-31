@@ -1,29 +1,31 @@
 <ion-header>
 
   <ion-navbar color = "dark-brown">
-    <ion-title>LAPOR</ion-title>
+    <ion-title>LAPOR PENEMUAN</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding class = "page-laporpenemuan" color="dark-brown">
+<ion-content padding class = "page-laporpenemuan">
 
  <ion-list>
- <button ion-button round>Upload Foto</button><br><br>
+ <button ion-button round color="dark-brown" (click)="getImage()">Upload Foto</button><br><br>
+ <img src="{{image64}}" alt="Ionic File" />
  <ion-card style="opacity: 0.60">
   <ion-item>
     <ion-label floating>Judul</ion-label>
-    <ion-input type="text"ion-input></ion-input>
+    <ion-input type="text"ion-input [(ngModel)]="data.judul"></ion-input>
   </ion-item>
   
   <ion-item>
-    <ion-label floating>Deskripsi</ion-label>
-    <ion-input type="text"ion-input></ion-input>
+    <ion-label floating>Deskripsi (tentang barang temuan dan kronologi)</ion-label>
+    <ion-input type="text"ion-input [(ngModel)]="data.deskripsi"></ion-input>
   </ion-item>
 </ion-card>
 
-<button ion-button block outline color="dark-brown">Laporkan</button>
+<br><br>
+<button ion-button block color="dark-brown" outline (click)="validCheck()">Laporkan</button>
 </ion-list>
-</ion-content>
 
+</ion-content>

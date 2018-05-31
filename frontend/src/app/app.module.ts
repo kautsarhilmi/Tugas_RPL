@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { DataProvider } from '../provider/data';
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -19,6 +20,13 @@ import { LaporpenemuanPage } from '../pages/laporpenemuan/laporpenemuan';
 import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 
+class CameraMock extends Camera {
+  getPicture(options) {
+    return new Promise((resolve, reject) => {
+      resolve("BASE_64_ENCODED_DATA_GOES_HERE");
+    })
+  }
+}
 
 @NgModule({
   declarations: [
@@ -57,6 +65,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   providers: [
     StatusBar,
     SplashScreen,
+    { provide: Camera, useClass: CameraMock },
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider
   ]

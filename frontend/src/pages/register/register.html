@@ -14,8 +14,8 @@
 
 
 <ion-content padding class = "page-register">
-  <ion-card style="opacity: 0.60;">
   <ion-list>
+  <ion-card style="opacity: 0.60;">
   <ion-item>
     <ion-label floating>Nama</ion-label>
     <ion-input type="text"ion-input [(ngModel)]="data.nama"></ion-input>
@@ -105,10 +105,9 @@
     <ion-label floating>No Hp</ion-label>
     <ion-input type="text" [(ngModel)]="data.no_hp"></ion-input>
   </ion-item>
+  </ion-card>
   <br>
 <button ion-button full round color="dark-brown" (click)="validcheck()">Daftar</button>
 </ion-list>
-</ion-card>
-
 
 </ion-content>

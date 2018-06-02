@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController, App } from 'ionic-angular';
+import { NavController, ToastController, App, Events } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
@@ -15,7 +15,7 @@ export class HomePage {
   data:any = {};
 
   constructor(public app: App, public navCtrl: NavController, public toastCtrl: ToastController, public http: Http,
-    public DataStorage: DataProvider) {
+    public DataStorage: DataProvider, public events: Events) {
     this.data.username = "";
     this.data.password = "";
     this.data.response = "";
@@ -31,15 +31,16 @@ export class HomePage {
     let loginData = JSON.stringify({username: this.data.username, pw: this.data.password});
     //console.log(loginData)
     this.http.post(link, loginData).subscribe(data => {
-      console.log(data)
+      //console.log(data)
       let response = data.json();
       //let response = data["_body"];
-      console.log(response)
+      //console.log(response)
       if(response.status == "200"){
-          console.log(response.data);
-          this.DataStorage.login(response.data, "user");
-          this.navCtrl.push(MyApp);
-          //this.app.getRootNav().setRoot(MyApp);
+          //console.log(response.data);
+          this.DataStorage.login(response.data);
+          this.loginEvent(response.data);
+          //this.navCtrl.push(MyApp); //push dari child
+          this.app.getRootNav().setRoot(MyApp); //push dari entire app
           //this.navCtrl.setRoot(TabsPage);
         } else {
           // Kalau akun tidak ada
@@ -54,4 +55,11 @@ export class HomePage {
         console.log("Oooops!");
       });
   }
+
+  loginEvent(user) {
+      console.log('User logged in!');
+      console.log(user);
+      this.events.publish('user:logged_in', user);
+  }
+
 }

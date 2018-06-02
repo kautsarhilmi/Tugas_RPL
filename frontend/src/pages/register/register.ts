@@ -45,14 +45,14 @@ export class RegisterPage {
       toast.present();
     } else if(this.regexpnama.test(this.data.nama) == false) {
        let toast = this.toastCtrl.create({
-        message: 'Nama min. 1 karakter dan max. 24 karakter',
+        message: 'Nama min. 2 karakter dan max. 24 karakter',
         duration: 3000,
         position: 'top'
       }); 
       toast.present();
     } else if(this.regexpuname.test(this.data.username) == false) {
       let toast = this.toastCtrl.create({
-        message: 'Username dapat mengandung . _ - dan max. 19 karakter',
+        message: 'Username min. 2 karakter max. 19 karakter\n(dapat mengandung . _ -)',
         duration: 3000,
         position: 'top'
       });
@@ -94,7 +94,7 @@ export class RegisterPage {
       //let response = data["_body"];
       console.log(response)
       if(response.status == "200"){
-        this.navCtrl.push(HomePage);
+        this.app.getRootNav().setRoot(MyApp);
         let alert = this.alertCtrl.create({
          title: 'Account Created',
          subTitle: 'Akun berhasil dibuat',

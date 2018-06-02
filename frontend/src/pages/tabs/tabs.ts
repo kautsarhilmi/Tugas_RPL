@@ -11,13 +11,14 @@ import { KehilanganPage } from '../kehilangan/kehilangan';
 })
 
 export class TabsPage {
-
+	whatIndex: number;
 	tabPenemuan = PenemuanPage;
 	tabLapor = LaporPage;
 	tabKehilangan = KehilanganPage;
 	
-	constructor() {
-		
+	constructor(public navParams: NavParams) {
+		this.whatIndex = navParams.get('opentab');
+		console.log(this.whatIndex);
 	}
 
   ionViewDidLoad() {

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, AlertController, App } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Http } from '@angular/http';
 
+import { TabsPage } from '../tabs/tabs';
+import { MyApp } from '../../app/app.component';
 import{ PenemuanPage } from '../penemuan/penemuan';
 import { DataProvider } from '../../provider/data';
 
@@ -15,7 +17,8 @@ export class LaporpenemuanPage {
   image64: any = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public camera: Camera, public http: Http,
-  	public toastCtrl: ToastController, public alertCtrl: AlertController, public DataStorage: DataProvider) { 
+  	public toastCtrl: ToastController, public alertCtrl: AlertController, public DataStorage: DataProvider,
+    public app: App) { 
   	this.image64 = 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=='
   	this.DataStorage.getData().then((value) => {
   		this.data.usernim = value.nim;
@@ -73,8 +76,9 @@ export class LaporpenemuanPage {
               position: 'top'
             });
             toast.present()
-            this.navCtrl.push(PenemuanPage);
-            //this.app.getRootNav().setRoot(MyApp);
+            //this.navCtrl.push(PenemuanPage); //yang ini push ke page baru dari child
+            //this.app.getRootNav().push(PenemuanPage) //yang ini push ke page baru dari entire app
+            this.app.getRootNav().setRoot(TabsPage, {opentab: 0});
             //this.navCtrl.setRoot(TabsPage);
           } else {
             // Kalau gagal post

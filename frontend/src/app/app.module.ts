@@ -19,6 +19,8 @@ import { LaporkehilanganPage } from '../pages/laporkehilangan/laporkehilangan';
 import { LaporpenemuanPage } from '../pages/laporpenemuan/laporpenemuan';
 import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
+import { UploadPage } from '../pages/upload/upload';
+import { PostdetailPage } from '../pages/postdetail/postdetail';
 
 class CameraMock extends Camera {
   getPicture(options) {
@@ -40,7 +42,9 @@ class CameraMock extends Camera {
 	LaporkehilanganPage,
 	LaporpenemuanPage,
 	ProfilePage,
-	TabsPage
+	TabsPage,
+  UploadPage,
+  PostdetailPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,9 @@ class CameraMock extends Camera {
 	LaporkehilanganPage,
 	LaporpenemuanPage,
 	ProfilePage,
-	TabsPage
+	TabsPage,
+  UploadPage,
+  PostdetailPage
   ],
   providers: [
     StatusBar,

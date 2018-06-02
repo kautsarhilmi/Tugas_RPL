@@ -17,10 +17,10 @@ export class PostdetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public DataStorage: DataProvider,
   	public http: Http, public toastCtrl: ToastController, public alertCtrl: AlertController, public app: App) {
   	this.post = {postid: this.navParams.get('postid'), usernim: this.navParams.get('usernim'),
-	              nama: this.navParams.get('nama'), jenis: this.navParams.get('jenis'),
+	              nama: this.navParams.get('nama'), email: this.navParams.get('email'), no_hp: this.navParams.get('no_hp'), jenis: this.navParams.get('jenis'),
 	              judul: this.navParams.get('judul'), deskripsi: this.navParams.get('deskripsi'),
 	          	  date_time: this.navParams.get('date_time')};
-
+	console.log(this.post);
 	this.DataStorage.getData().then(value => {
 		this.mynim = value.nim;
 	});

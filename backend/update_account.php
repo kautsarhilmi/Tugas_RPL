@@ -18,7 +18,7 @@
             //cek apakah JSON punya attribut pw di dalamnya
             if($pw != ""){
                 //cek apakah updatean username udah ada di db
-                $query_username = mysqli_query($connect, "SELECT * FROM user WHERE username='$username'");
+                $query_username = mysqli_query($connect, "SELECT * FROM user WHERE username='$username' && nim!='$nim'");
                 if(mysqli_num_rows($query_username)){
                     $data =array(
                       'message' => "Email or Username Already Taken!",
@@ -41,7 +41,7 @@
                    }
             } else {
                 //cek apakah updatean username udah ada di db
-                $query_username = mysqli_query($connect, "SELECT * FROM user WHERE username='$username'");
+                $query_username = mysqli_query($connect, "SELECT * FROM user WHERE username='$username' && nim!='$nim'");
                 if(mysqli_num_rows($query_username)){
                     $data =array(
                       'message' => "Email or Username Already Taken!",

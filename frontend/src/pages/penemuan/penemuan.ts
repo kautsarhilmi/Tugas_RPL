@@ -34,7 +34,7 @@ export class PenemuanPage {
 
           	  let posts_elem =
           	  {postid: this.response.data[i].postid, usernim: this.response.data[i].usernim,
-              nama: this.response.data[i].nama, jenis: this.response.data[i].jenis,
+              nama: this.response.data[i].nama, email: this.response.data[i].email, no_hp: this.response.data[i].no_hp, jenis: this.response.data[i].jenis,
               judul: this.response.data[i].judul, deskripsi: this.response.data[i].deskripsi,
           	  date_time: thedatetime.toLocaleDateString('id-ID', options)};
           	  this.posts.push(posts_elem);

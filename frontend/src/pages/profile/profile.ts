@@ -65,17 +65,21 @@ export class ProfilePage {
 	        position: 'top'
 	      });
 	      toast.present();
-      	  }
-      	}
-      this.editacc(this.data.pw);
-    }
+      	} else {
+          this.editacc(this.data.pw);
+        }
+      } else {
+        this.editacc(this.data.pw);
+      }
+
+      }
   }
 
   editacc(datapw){
 	let link = 'http://localhost/rest_api_php/update_account.php';
 	let updateData = JSON.stringify({nim: this.data.nim, nama: this.data.nama, username: this.data.username,
     								  pw: datapw, no_hp: this.data.no_hp}); 
-    console.log(updateData);
+    //console.log(updateData);
     this.http.post(link, updateData).subscribe(data => {
       //console.log(data)
       let response = data.json();

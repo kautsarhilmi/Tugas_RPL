@@ -35,21 +35,60 @@
 			<ion-row>
 				<div style="color: red;"><i>{{post.jenis}}</i></div>
 			</ion-row>
-			<ion-row>
-				<ion-note style="text-align: right">{{post.date_time}}</ion-note>
-			</ion-row>
 			<br>
-			<ion-row>
+			<span style="float:right;"><ion-note>{{post.date_time}}</ion-note></span>
+			<br>
+			<ion-row (press)="copyDesc(post.deskripsi)">
 				{{post.deskripsi}}
 			</ion-row>
+
+			<ion-item style="border-bottom: 1px solid #d3d3d3;">
+			</ion-item>
+			<ng-container *ngFor="let comment of comments">
+				<ion-item *ngIf="comment">
+					<ion-row>
+						<ion-col col-auto>
+				    	<ion-icon name="md-contact" style="font-size: 30px; color: #d3d3d3"></ion-icon>
+				    	</ion-col>
+				    	<ion-col style="position: relative;
+			    			padding: 5px;
+			   				width: 1%; // we are overriding this field
+			    			margin: 0;
+			    			min-height: 1px;
+			    			flex-basis: 0;
+			    			flex-grow: 1;
+			    			max-width: 100%;">
+				    	<div style="font-weight: bold;">{{comment.nama}}</div>
+			    		<div text-wrap (press)="copyDesc(comment.text)">
+				    		{{comment.text}}
+				   		</div>
+				   		<ion-note>{{comment.date_time}}</ion-note>
+				   		</ion-col>
+					</ion-row>
+				</ion-item>
+			</ng-container>
+
 		</ion-card-content>
 	 </ion-card>
 	 <ng-container *ngIf="post.usernim == mynim">
 			<button ion-button full color="dark-brown" (click)="deletePost()">
-		        <ion-icon name="ios-cross"></ion-icon>
-		        <div>Hapus Post</div>
+		        <ion-icon name="md-trash"></ion-icon>
+		        <div style="padding-left: 6px;">Hapus Post</div>
 	      	</button>
      </ng-container>
  </ion-list>
 
+ <ion-list>
+ 	
+ </ion-list>
+
 </ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar color="white">
+  	<ion-row>
+    <ion-input placeholder="Tulis komentar..." type="text" [(ngModel)]="comment_text"></ion-input>
+    <button clear ion-button item-right (click)="sendComment()"><ion-icon name="md-send"></ion-icon></button>
+	</ion-row>
+  </ion-toolbar>
+</ion-footer>

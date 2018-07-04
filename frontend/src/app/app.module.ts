@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { DataProvider } from '../provider/data';
 import { Camera } from '@ionic-native/camera';
+import { Clipboard } from '@ionic-native/clipboard';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -21,6 +22,9 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 import { UploadPage } from '../pages/upload/upload';
 import { PostdetailPage } from '../pages/postdetail/postdetail';
+import { MykehilanganPage } from '../pages/mykehilangan/mykehilangan';
+import { MypenemuanPage } from '../pages/mypenemuan/mypenemuan';
+import { MykomentarPage } from '../pages/mykomentar/mykomentar';
 
 class CameraMock extends Camera {
   getPicture(options) {
@@ -44,7 +48,11 @@ class CameraMock extends Camera {
 	ProfilePage,
 	TabsPage,
   UploadPage,
-  PostdetailPage
+  PostdetailPage,
+  MykehilanganPage,
+  MypenemuanPage,
+  MykomentarPage
+
   ],
   imports: [
     BrowserModule,
@@ -66,13 +74,17 @@ class CameraMock extends Camera {
 	ProfilePage,
 	TabsPage,
   UploadPage,
-  PostdetailPage
+  PostdetailPage,
+  MykehilanganPage,
+  MypenemuanPage,
+  MykomentarPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: Camera, useClass: CameraMock },
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Clipboard,
     DataProvider
   ]
 })

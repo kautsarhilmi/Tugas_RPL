@@ -8,6 +8,9 @@ import { Http } from '@angular/http';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProfilePage } from '../pages/profile/profile';
+import { MykehilanganPage } from '../pages/mykehilangan/mykehilangan';
+import { MypenemuanPage } from '../pages/mypenemuan/mypenemuan';
+import { MykomentarPage } from '../pages/mykomentar/mykomentar';
 
 @Component({
   templateUrl: 'app.html'
@@ -37,9 +40,9 @@ export class MyApp {
 
       this.pages = [
       { title: 'Edit Profile', component: ProfilePage },
-      { title: 'Penemuan saya', component: HomePage },
-      { title: 'Komentar saya', component: HomePage },
-      { title: 'Kehilangan saya', component: HomePage }
+      { title: 'Penemuan saya', component: MypenemuanPage },
+      { title: 'Komentar saya', component: MykomentarPage },
+      { title: 'Kehilangan saya', component: MykehilanganPage }
       ];
     });
 
@@ -53,9 +56,9 @@ export class MyApp {
 
           this.pages = [
             { title: 'Edit Profile', component: ProfilePage },
-            { title: 'Penemuan saya', component: HomePage },
-            { title: 'Komentar saya', component: HomePage },
-            { title: 'Kehilangan saya', component: HomePage }
+            { title: 'Penemuan saya', component: MypenemuanPage },
+            { title: 'Komentar saya', component: MykomentarPage },
+            { title: 'Kehilangan saya', component: MykehilanganPage }
             ];
 
           this.rootPage = TabsPage;

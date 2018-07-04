@@ -3,7 +3,6 @@ import { NavController, NavParams, ToastController, AlertController } from 'ioni
 import { Http } from '@angular/http';
 
 import { PostdetailPage } from '../postdetail/postdetail';
-import { DataProvider } from '../../provider/data';
 
 @Component({
   selector: 'page-kehilangan',
@@ -14,7 +13,7 @@ export class KehilanganPage {
   response: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,
-  	public toastCtrl: ToastController, public alertCtrl: AlertController, public DataStorage: DataProvider) {
+  	public toastCtrl: ToastController, public alertCtrl: AlertController) {
   	let linkgetposts = 'http://localhost/rest_api_php/load_posts.php';
   	this.posts = [];
   	this.response = {};

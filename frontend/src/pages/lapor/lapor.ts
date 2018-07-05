@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { LaporkehilanganPage } from '../laporkehilangan/laporkehilangan';
 import { LaporpenemuanPage } from '../laporpenemuan/laporpenemuan';
+import { NotifPage } from '../notif/notif';
 
 @Component({
   selector: 'page-lapor',
@@ -17,5 +18,8 @@ export class LaporPage {
   }
   gotoLaporpenemuanPage(){
 	  this.navCtrl.push(LaporpenemuanPage);
+  }
+  gotoNotifPage(){
+  this.navCtrl.push(NotifPage);
   }
 }

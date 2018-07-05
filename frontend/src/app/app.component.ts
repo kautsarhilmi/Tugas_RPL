@@ -11,7 +11,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { MykehilanganPage } from '../pages/mykehilangan/mykehilangan';
 import { MypenemuanPage } from '../pages/mypenemuan/mypenemuan';
 import { MykomentarPage } from '../pages/mykomentar/mykomentar';
-
+import { NotifPage } from '../pages/notif/notif';
 @Component({
   templateUrl: 'app.html'
 })

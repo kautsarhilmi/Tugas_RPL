@@ -25,6 +25,7 @@ import { PostdetailPage } from '../pages/postdetail/postdetail';
 import { MykehilanganPage } from '../pages/mykehilangan/mykehilangan';
 import { MypenemuanPage } from '../pages/mypenemuan/mypenemuan';
 import { MykomentarPage } from '../pages/mykomentar/mykomentar';
+import { NotifPage } from '../pages/notif/notif';
 
 class CameraMock extends Camera {
   getPicture(options) {
@@ -51,7 +52,8 @@ class CameraMock extends Camera {
   PostdetailPage,
   MykehilanganPage,
   MypenemuanPage,
-  MykomentarPage
+  MykomentarPage,
+  NotifPage
 
   ],
   imports: [
@@ -77,7 +79,8 @@ class CameraMock extends Camera {
   PostdetailPage,
   MykehilanganPage,
   MypenemuanPage,
-  MykomentarPage
+  MykomentarPage,
+  NotifPage
   ],
   providers: [
     StatusBar,

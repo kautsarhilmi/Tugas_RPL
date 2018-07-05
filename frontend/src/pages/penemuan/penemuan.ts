@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 
 import { PostdetailPage } from '../postdetail/postdetail';
 import { DataProvider } from '../../provider/data';
+import { NotifPage } from '../notif/notif';
 
 @Component({
   selector: 'page-penemuan',
@@ -65,6 +66,10 @@ export class PenemuanPage {
 
   gotoPostDetail(refpost) {
     this.navCtrl.push(PostdetailPage, refpost);
+  }
+
+  gotoNotifPage(){
+    this.navCtrl.push(NotifPage);
   }
 
 }

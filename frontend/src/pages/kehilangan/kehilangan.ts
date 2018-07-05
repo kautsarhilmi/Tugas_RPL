@@ -3,6 +3,7 @@ import { NavController, NavParams, ToastController, AlertController } from 'ioni
 import { Http } from '@angular/http';
 
 import { PostdetailPage } from '../postdetail/postdetail';
+import { NotifPage } from '../notif/notif';
 
 @Component({
   selector: 'page-kehilangan',
@@ -64,6 +65,10 @@ export class KehilanganPage {
 
   gotoPostDetail(refpost) {
     this.navCtrl.push(PostdetailPage, refpost);
+  }
+
+  gotoNotifPage(){
+  this.navCtrl.push(NotifPage);
   }
 
 }

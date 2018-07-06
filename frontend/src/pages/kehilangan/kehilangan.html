@@ -14,6 +14,15 @@
 
 
 <ion-content padding class="page-penemuan">
+  
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Tarik untuk refresh"
+      refreshingSpinner="circles"
+      refreshingText="Melakukan refresh...">
+    </ion-refresher-content>
+  </ion-refresher>
 
 <ng-container *ngFor="let post of posts">
 <ion-card *ngIf="post">
@@ -41,7 +50,7 @@
     </ion-col>
     <ion-col>
       <div ion-button icon-left color="light-grey" clear small>
-        <ion-icon name="text"></ion-icon>xx Comments
+        <ion-icon name="text"></ion-icon>{{post.comment_count}} Comment(s)
       </div>
     </ion-col>
     <ion-col center>

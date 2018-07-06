@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 
 import { LaporkehilanganPage } from '../laporkehilangan/laporkehilangan';
 import { LaporpenemuanPage } from '../laporpenemuan/laporpenemuan';
@@ -11,7 +11,7 @@ import { NotifPage } from '../notif/notif';
 })
 export class LaporPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
   }
   gotoLaporkehilanganPage(){
 	  this.navCtrl.push(LaporkehilanganPage);
@@ -20,6 +20,6 @@ export class LaporPage {
 	  this.navCtrl.push(LaporpenemuanPage);
   }
   gotoNotifPage(){
-  this.navCtrl.push(NotifPage);
+  this.app.getRootNav().push(NotifPage);
   }
 }

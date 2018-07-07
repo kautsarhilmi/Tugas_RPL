@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 02 Jun 2018 pada 07.58
+-- Generation Time: 07 Jul 2018 pada 04.16
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -21,6 +21,54 @@ SET time_zone = "+00:00";
 --
 -- Database: `cyduck`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `comment`
+--
+
+CREATE TABLE `comment` (
+  `commentid` bigint(255) NOT NULL,
+  `usernim` varchar(10) NOT NULL,
+  `postid` bigint(255) NOT NULL,
+  `text` text NOT NULL,
+  `date_time` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `comment`
+--
+
+INSERT INTO `comment` (`commentid`, `usernim`, `postid`, `text`, `date_time`) VALUES
+(1, 'E2160203', 44, 'haha', 1530722200762),
+(2, 'E2160203', 44, 'nonono', 1530722539748),
+(3, 'E2160203', 44, 'hehe', 1530722702838),
+(4, 'E2160203', 44, 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1530727163025),
+(5, 'E2160203', 44, 'huhu', 1530731214116),
+(6, 'E2160203', 44, 'hoho', 1530731228023),
+(8, 'E2160203', 43, 'Payungnya kecil', 1530845646828),
+(10, 'E2160203', 37, 'Apakah dompetnya berwarna ungu?', 1530846809461),
+(11, 'E2160203', 37, 'Sepertinya saya menemukannya', 1530846894640),
+(12, 'E2160203', 37, 'Silakan hubungi saya', 1530846907376),
+(13, 'E2160203', 37, 'Test', 1530914603505),
+(14, 'G14160071', 43, 'Apakah payungnya hilang saat hari sedang hujan?', 1530914892036),
+(18, '111111', 43, 'Test', 1530921394071),
+(19, 'E2160203', 43, 'Test', 1530921578677),
+(23, '111111', 37, 'tEST', 1530928391525);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `notification`
+--
+
+CREATE TABLE `notification` (
+  `notifid` bigint(20) NOT NULL,
+  `commentid` bigint(20) NOT NULL,
+  `usernim` varchar(10) NOT NULL,
+  `issuer_usernim` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -73,7 +121,6 @@ INSERT INTO `post` (`postid`, `usernim`, `jenis`, `judul`, `deskripsi`, `foto`, 
 (35, 'G14160071', 'kehilangan', 'Mancing Mania', 'Mantap', '', 1527809296950),
 (36, 'G14160071', 'penemuan', 'Mata Pancing', 'Yeah!', '', 1527809323038),
 (37, '111111', 'kehilangan', 'Kehilangan Dompet', 'Kehilangan di sekitar astri, pukul 14.00 1 Juni. Kemungkinan tercecer saat sedang berjalan', '', 1527881272763),
-(38, '111111', 'penemuan', 'Penemuan Uang', 'Ditemukan dekat gymnasium', '', 1527881311837),
 (43, 'E2160203', 'penemuan', 'Penemuan Payung', 'Ditemukan payung di depan gedung CCR bermotif polkadot berwarna ungu', '', 1527908008131),
 (44, 'g64160000', 'penemuan', 'TUPPERWARE DAN TOPI', 'Ciri-ciri tupperware berwarna pink bertutup kuning. Topi berwarna hijau model army. Ditemuka dekat audit FPIK pada pukul 16.00 kemarin', '', 1527908193151),
 (45, 'g64160000', 'kehilangan', 'Hilang Ragaku Melayang', 'Jauh tak terbayang. Ke angkasa \'ku akan terbang', '', 1527908279415);
@@ -111,10 +158,27 @@ INSERT INTO `user` (`nim`, `nama`, `username`, `pw`, `email`, `no_hp`, `token`) 
 --
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`commentid`),
+  ADD KEY `comment_ibfk_1` (`usernim`),
+  ADD KEY `comment_ibfk_2` (`postid`);
+
+--
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`notifid`),
+  ADD KEY `notification_ibfk_1` (`usernim`),
+  ADD KEY `notification_ibfk_2` (`commentid`);
+
+--
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
-  ADD PRIMARY KEY (`postid`);
+  ADD PRIMARY KEY (`postid`),
+  ADD KEY `post_ibfk_1` (`usernim`);
 
 --
 -- Indexes for table `user`
@@ -127,10 +191,46 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `commentid` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `notifid` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
   MODIFY `postid` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`usernim`) REFERENCES `user` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`postid`) REFERENCES `post` (`postid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `notification`
+--
+ALTER TABLE `notification`
+  ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`usernim`) REFERENCES `user` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `notification_ibfk_2` FOREIGN KEY (`commentid`) REFERENCES `comment` (`commentid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `post`
+--
+ALTER TABLE `post`
+  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`usernim`) REFERENCES `user` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

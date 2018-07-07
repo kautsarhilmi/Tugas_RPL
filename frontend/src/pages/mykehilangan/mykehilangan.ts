@@ -67,4 +67,8 @@ export class MykehilanganPage {
     console.log('ionViewDidLoad MykehilanganPage');
   }
 
+  gotoPostDetail(refpost) {
+    this.navCtrl.push(PostdetailPage, refpost);
+  }
+
 }

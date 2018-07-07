@@ -40,7 +40,8 @@ export class MypenemuanPage {
 	          	  {postid: this.response.data[i].postid, usernim: this.response.data[i].usernim, 
 	              nama: this.response.data[i].nama, jenis: this.response.data[i].jenis,
 	              judul: this.response.data[i].judul, deskripsi: this.response.data[i].deskripsi,
-	          	  date_time: thedatetime.toLocaleDateString('id-ID', options)};
+	          	  date_time: thedatetime.toLocaleDateString('id-ID', options),
+	          	  comment_count: this.response.data[i].count};
 	          	  this.posts.push(posts_elem);
 		          //console.log(this.posts[i]);
 	          	  

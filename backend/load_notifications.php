@@ -1,15 +1,16 @@
 <?php
   include 'db_connect.php';
   $postdata = file_get_contents("php://input");
-  $postid = '';
+  $usernim = '';
   $request = json_decode($postdata);
-  $postid = $request->postid;
+  $usernim = $request->usernim;
 
-    $query_comments = mysqli_query($connect,"SELECT u.nama, c.commentid, c.postid, c.text, c.date_time, c.usernim FROM comment c, user u WHERE c.postid='$postid' && c.usernim=u.nim ORDER BY c.date_time ASC");
-    if(mysqli_num_rows($query_comments)){
-         while($result=mysqli_fetch_assoc($query_comments)){
+    $query_posts = mysqli_query($connect,"SELECT p.postid, p.jenis, p.judul, c.date_time, u.nama FROM comment c, post p, user u, notification n WHERE c.postid=p.postid && n.commentid=c.commentid && n.issuer_usernim=u.nim && n.usernim='$usernim' ORDER BY c.date_time DESC");
+    if(mysqli_num_rows($query_posts)){
+         while($result=mysqli_fetch_assoc($query_posts)){
             $results_set[]=$result;
          }
+
          $data = array(
             'message' => "Data Query Success",
             'data' => $results_set,

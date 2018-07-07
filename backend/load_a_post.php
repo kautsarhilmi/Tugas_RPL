@@ -5,14 +5,13 @@
   $request = json_decode($postdata);
   $postid = $request->postid;
 
-    $query_comments = mysqli_query($connect,"SELECT u.nama, c.commentid, c.postid, c.text, c.date_time, c.usernim FROM comment c, user u WHERE c.postid='$postid' && c.usernim=u.nim ORDER BY c.date_time ASC");
-    if(mysqli_num_rows($query_comments)){
-         while($result=mysqli_fetch_assoc($query_comments)){
-            $results_set[]=$result;
-         }
+    $query_posts = mysqli_query($connect,"SELECT p.postid, p.usernim, p.jenis, p.judul, p.deskripsi, p.date_time, u.nama, u.email, u.no_hp, (SELECT COUNT(postid) FROM comment WHERE postid=p.postid) AS count FROM post p, user u WHERE p.usernim=u.nim && p.postid='$postid' ORDER BY p.date_time DESC");
+    if(mysqli_num_rows($query_posts)){
+         $result=mysqli_fetch_assoc($query_posts);
+
          $data = array(
             'message' => "Data Query Success",
-            'data' => $results_set,
+            'data' => $result,
             'status' => "200"
          );
      }

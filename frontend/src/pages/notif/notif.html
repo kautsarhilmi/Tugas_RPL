@@ -10,4 +10,38 @@
 
 <ion-content padding class="page-penemuan">
 
+<ng-container *ngFor="let notif of notifications">
+<ion-card *ngIf="notif">
+
+  <ion-card-content>
+    <ion-row>
+    	<ion-col col-auto>
+			<ion-icon name="md-contact" style="font-size: 30px; color: #d3d3d3"></ion-icon>
+		</ion-col>
+		<ion-col style="position: relative;
+    			padding: 5px;
+   				width: 1%; // we are overriding this field
+    			margin: 0;
+    			min-height: 1px;
+    			flex-basis: 0;
+    			flex-grow: 1;
+    			max-width: 100%;">
+	    <div style="font-weight: bold; display: inline;">{{notif.issuer_nama}}</div> mengomentari post tentang <div style="font-weight: bold; display: inline;">{{notif.jenis}}</div> Anda pada "<div style="font-weight: bold; display: inline;">{{notif.judul}}</div>"
+	    <ion-note>
+	    	{{notif.date_time}}
+	    </ion-note>
+		</ion-col>
+	</ion-row>
+
+	<ion-row>
+	  	<button ion-button icon-left clear small (click)="gotoAPostDetail(notif.postid)">
+	       	<ion-icon name="ios-more"></ion-icon>
+	       	<div>Lihat Post</div>
+	    </button>
+	</ion-row>
+  </ion-card-content>
+
+</ion-card>
+</ng-container>
+
 </ion-content>

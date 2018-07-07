@@ -146,11 +146,22 @@ export class PostdetailPage {
 								{usernim: this.response.data[this.response.data.length-1].usernim, 
 				        	    nama: this.response.data[this.response.data.length-1].nama,
 				        	    text: this.response.data[this.response.data.length-1].text,
-				        	  	date_time: thedatetime.toLocaleDateString('id-ID', options)};
+				        	  	date_time: thedatetime.toLocaleDateString('id-ID', options),
+				        	  	commentid: this.response.data[this.response.data.length-1].commentid};
 				        	  	this.comments.push(comments_elem);
-				        	  	this.comment_text="";
-				        	  	this.content.scrollToBottom();
-							}
+
+			        	  	let linkcreatenotif = 'http://localhost/rest_api_php/create_notification.php';
+			        	  	console.log("test");
+			        	  	this.http.post(linkcreatenotif, JSON.stringify(
+			        	  		{commentid: comments_elem.commentid,
+			        	  		usernim: this.post.usernim,
+	  							issuer_usernim: this.mynim})).subscribe(data => {
+			        	  		
+			        	  		console.log(data);
+			        	  		this.comment_text="";
+			        	  		this.content.scrollToBottom();
+			        	  	});
+						}
 					});
 		  		}
 		  	});

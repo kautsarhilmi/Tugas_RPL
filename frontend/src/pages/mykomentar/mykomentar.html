@@ -6,13 +6,36 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>mykomentar</ion-title>
+  <ion-navbar color = "dark-brown">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Komentar Saya</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="page-penemuan">
+	<ng-container *ngFor="let comment of comments">
+	<ion-card *ngIf="comment">
+
+	  <ion-card-content>
+	  	<ion-row>
+	    Kamu mengomentari post &nbsp; <div style="font-weight: bold;">{{comment.judul_post}}</div> &nbsp; pada &nbsp; <div style="font-weight: bold;">{{comment.date_time}}</div>
+		</ion-row>
+	    <!--<p style="color: red;">{{post.jenis}}</p>-->
+	    <p>Komentar:</p>
+	    <p><i>{{comment.text}}</i></p>
+	    <ion-row>
+	    	<button ion-button icon-left clear small (click)="gotoAPostDetail(comment.postid)">
+	       		<ion-icon name="ios-more"></ion-icon>
+	        	<div>Lihat Post</div>
+	      	</button>
+	    </ion-row>
+	  </ion-card-content>
+
+	</ion-card>
+	</ng-container>
 
 </ion-content>
